@@ -24,7 +24,11 @@
                 <td>{{$project->description}}</td>
                 <td>{{$project->start_date}}</td>
                 <td>{{$project->end_date}}</td>
-                <td>modifica | Elimina</td>
+                <td>
+                    <a href="{{route('projects.show', $project)}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
+                    <a href="#" class="btn btn-warning"><i class="fa-solid fa-pencil"></i></a>
+                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                </td>
             </tr>
         @endforeach
 
