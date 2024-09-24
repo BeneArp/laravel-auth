@@ -17,4 +17,8 @@ class Project extends Model
         'slug'
     ];
 
+    protected $casts = [
+        'start_date' => 'datetime:d/m/Y',
+        'end_date' => 'datetime:d/m/Y',
+    ];
 }

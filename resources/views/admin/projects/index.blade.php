@@ -22,8 +22,8 @@
                 <th scope="row">{{$project->id}}</th>
                 <td>{{$project->title}}</td>
                 <td>{{$project->description}}</td>
-                <td>{{$project->start_date}}</td>
-                <td>{{$project->end_date}}</td>
+                <td>{{ ($project->start_date )->format('d/m/Y') }}</td>
+                <td>{{ ($project->end_date)->format('d/m/Y') }}</td>
                 <td>
                     <a href="{{route('projects.show', $project)}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
                     <a href="{{route('projects.edit', $project)}}" class="btn btn-warning"><i class="fa-solid fa-pencil"></i></a>
