@@ -5,7 +5,7 @@
             <a class="link" href="{{route('projects.index')}}">Tutti i progetti</a>
         </li>
         <li class="mb-2">
-            <a class="link" href="#">Nuovo progetto</a>
+            <a class="link" href="{{route('projects.create')}}">Nuovo progetto</a>
         </li>
     </ul>
 
