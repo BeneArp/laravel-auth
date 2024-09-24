@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Http\Requests\ProjectRequest;
+use App\Functions\Helper;
 
 class ProjectController extends Controller
 {
@@ -14,7 +15,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::orderBy('id', 'desc')->get();
 
         return view('admin.projects.index', compact('projects'));
     }
@@ -33,6 +34,14 @@ class ProjectController extends Controller
     public function store(ProjectRequest $request)
     {
         $data = $request->all();
+        $data['slug'] = Helper::generateSlug($data['title'], Project::class);
+
+        $new_project = new Project;
+
+        $new_project->fill($data);
+        $new_project->save();
+
+        return redirect()->route('projects.show', $new_project);
     }
 
     /**
